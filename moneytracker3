@@ -1,0 +1,46 @@
+import datetime
+
+while True:
+    try:
+        text = int(input("Hello Nana, enter password to log in:  "))
+    except ValueError:
+        print("Enter correct password to log in.  ")
+        continue
+    else:
+        break
+if text != 1234: 
+     print("You did not enter correct password.")
+    
+else:
+   
+    print("Your login time and date is\n")
+    x  = datetime.datetime.now()
+    print(x)
+
+print("\n")
+login = int(input('enter start time in hours: '))
+login2 =int(input('enter start time in minutes: '))   
+
+start_time = datetime.time(login,login2)
+print(start_time)
+print("\n")
+logout = int(input('enter end time in hours: '))
+logout2 =int(input('enter end time in minutes: '))   
+
+stop_time = datetime.time(logout,logout2)
+print(stop_time)
+print("\n")
+date = datetime.date(1, 1, 1)
+time1 = datetime.datetime.combine(date, start_time)
+time2 = datetime.datetime.combine(date, stop_time)
+
+time_elapsed = time2 - time1
+
+
+print("Your time spent working is " + str(time_elapsed) + " hours")
+
+time_spent = time_elapsed.total_seconds()/3600
+amnt_made = time_spent * 5
+print("\n")
+print("The amount you have made is: ")
+print("$" + str(round(amnt_made, 2) ))
